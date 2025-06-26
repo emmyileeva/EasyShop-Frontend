@@ -1,107 +1,134 @@
 <div class="filter-box">
     <h3 class="filter-title">Filters</h3>
 
-    <!-- Category -->
-    <div class="filter-section">
-        <label class="section-label">Category</label>
-        <select id="category-select" class="form-select" onchange="setCategory(this)">
-            <option value="0">Show All</option>
-        </select>
-    </div>
-
-    <!-- Price -->
-    <div class="filter-section">
-        <label class="section-label">Price Range</label>
-        <div class="range-row">
-            <span>Min: $<span id="min-price-display">0</span></span>
-            <input type="range" class="form-range" id="min-price" min="0" max="1500" value="0"
-                oninput="setMinPrice(this)">
-        </div>
-        <div class="range-row">
-            <span>Max: $<span id="max-price-display">1500</span></span>
-            <input type="range" class="form-range" id="max-price" min="0" max="1500" value="1500"
-                oninput="setMaxPrice(this)">
-        </div>
-    </div>
-
-    <!-- Color -->
-    <div class="filter-section">
-        <label class="section-label">Color</label>
-        <div id="color-options" class="color-swatches">
-            <label><input type="radio" name="color" value="" onchange="setColor(this)"> <span class="swatch all"></span>
-                All</label>
-            <label><input type="radio" name="color" value="Black" onchange="setColor(this)"> <span
-                    class="swatch black"></span>
-                Black</label>
-            <label><input type="radio" name="color" value="Blue" onchange="setColor(this)"> <span
-                    class="swatch blue"></span>
-                Blue</label>
-            <label><input type="radio" name="color" value="Brown" onchange="setColor(this)"> <span
-                    class="swatch brown"></span>
-                Brown</label>
-            <label><input type="radio" name="color" value="Burgundy" onchange="setColor(this)"> <span
-                    class="swatch burgundy"></span> Burgundy</label>
-            <label><input type="radio" name="color" value="Charcoal" onchange="setColor(this)"> <span
-                    class="swatch charcoal"></span> Charcoal</label>
-            <label><input type="radio" name="color" value="Clear" onchange="setColor(this)"> <span
-                    class="swatch clear"></span>
-                Clear</label>
-            <label><input type="radio" name="color" value="Dark Blue" onchange="setColor(this)"> <span
-                    class="swatch dark-blue"></span> Dark Blue</label>
-            <label><input type="radio" name="color" value="Gray" onchange="setColor(this)"> <span
-                    class="swatch gray"></span>
-                Gray</label>
-            <label><input type="radio" name="color" value="Green" onchange="setColor(this)"> <span
-                    class="swatch green"></span>
-                Green</label>
-            <label><input type="radio" name="color" value="Khaki" onchange="setColor(this)"> <span
-                    class="swatch khaki"></span>
-                Khaki</label>
-            <label><input type="radio" name="color" value="Lavender" onchange="setColor(this)"> <span
-                    class="swatch lavender"></span> Lavender</label>
-            <label><input type="radio" name="color" value="Maroon" onchange="setColor(this)"> <span
-                    class="swatch maroon"></span> Maroon</label>
-            <label><input type="radio" name="color" value="Mint" onchange="setColor(this)"> <span
-                    class="swatch mint"></span>
-                Mint</label>
-            <label><input type="radio" name="color" value="Navy" onchange="setColor(this)"> <span
-                    class="swatch navy"></span>
-                Navy</label>
-            <label><input type="radio" name="color" value="Olive" onchange="setColor(this)"> <span
-                    class="swatch olive"></span>
-                Olive</label>
-            <label><input type="radio" name="color" value="Orange" onchange="setColor(this)"> <span
-                    class="swatch orange"></span> Orange</label>
-            <label><input type="radio" name="color" value="Pink" onchange="setColor(this)"> <span
-                    class="swatch pink"></span>
-                Pink</label>
-            <label><input type="radio" name="color" value="Red" onchange="setColor(this)"> <span
-                    class="swatch red"></span>
-                Red</label>
-            <label><input type="radio" name="color" value="Silver" onchange="setColor(this)"> <span
-                    class="swatch silver"></span> Silver</label>
-            <label><input type="radio" name="color" value="Tan" onchange="setColor(this)"> <span
-                    class="swatch tan"></span>
-                Tan</label>
-            <label><input type="radio" name="color" value="Teal" onchange="setColor(this)"> <span
-                    class="swatch teal"></span>
-                Teal</label>
-            <label><input type="radio" name="color" value="Turquoise" onchange="setColor(this)"> <span
-                    class="swatch turquoise"></span> Turquoise</label>
-            <label><input type="radio" name="color" value="White" onchange="setColor(this)"> <span
-                    class="swatch white"></span>
-                White</label>
-            <label><input type="radio" name="color" value="Yellow" onchange="setColor(this)"> <span
-                    class="swatch yellow"></span> Yellow</label>
+    <div class="accordion" id="filterAccordion">
+        <!-- Category Section -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingCategory">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseCategory" aria-expanded="true" aria-controls="collapseCategory">
+                    Category
+                </button>
+            </h2>
+            <div id="collapseCategory" class="accordion-collapse collapse show" aria-labelledby="headingCategory"
+                data-bs-parent="#filterAccordion">
+                <div class="accordion-body">
+                    <select id="category-select" class="form-select" onchange="setCategory(this)">
+                        <option value="0">Show All</option>
+                    </select>
+                </div>
+            </div>
         </div>
 
+        <!-- Price Range Section -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingPrice">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsePrice" aria-expanded="false" aria-controls="collapsePrice">
+                    Price
+                </button>
+            </h2>
+            <div id="collapsePrice" class="accordion-collapse collapse" aria-labelledby="headingPrice"
+                data-bs-parent="#filterAccordion">
+                <div class="accordion-body">
+                    <label for="min-price">Min: $<span id="min-price-display">0</span></label>
+                    <input type="range" class="form-range" id="min-price" min="0" max="1500" value="0"
+                        oninput="setMinPrice(this)">
+                    <label for="max-price">Max: $<span id="max-price-display">1500</span></label>
+                    <input type="range" class="form-range" id="max-price" min="0" max="1500" value="1500"
+                        oninput="setMaxPrice(this)">
+                </div>
+            </div>
+        </div>
+
+        <!-- Color Swatches Section -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingColor">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseColor" aria-expanded="false" aria-controls="collapseColor">
+                    Color
+                </button>
+            </h2>
+            <div id="collapseColor" class="accordion-collapse collapse" aria-labelledby="headingColor"
+                data-bs-parent="#filterAccordion">
+                <div class="accordion-body">
+                    <div id="color-options" class="color-swatches">
+                        <label><input type="radio" name="color" value="" onchange="setColor(this)"> <span
+                                class="swatch all"></span>
+                            All</label>
+                        <label><input type="radio" name="color" value="Black" onchange="setColor(this)"> <span
+                                class="swatch black"></span>
+                            Black</label>
+                        <label><input type="radio" name="color" value="Blue" onchange="setColor(this)"> <span
+                                class="swatch blue"></span>
+                            Blue</label>
+                        <label><input type="radio" name="color" value="Brown" onchange="setColor(this)"> <span
+                                class="swatch brown"></span>
+                            Brown</label>
+                        <label><input type="radio" name="color" value="Burgundy" onchange="setColor(this)"> <span
+                                class="swatch burgundy"></span> Burgundy</label>
+                        <label><input type="radio" name="color" value="Charcoal" onchange="setColor(this)"> <span
+                                class="swatch charcoal"></span> Charcoal</label>
+                        <label><input type="radio" name="color" value="Clear" onchange="setColor(this)"> <span
+                                class="swatch clear"></span>
+                            Clear</label>
+                        <label><input type="radio" name="color" value="Dark Blue" onchange="setColor(this)"> <span
+                                class="swatch dark-blue"></span> Dark Blue</label>
+                        <label><input type="radio" name="color" value="Gray" onchange="setColor(this)"> <span
+                                class="swatch gray"></span>
+                            Gray</label>
+                        <label><input type="radio" name="color" value="Green" onchange="setColor(this)"> <span
+                                class="swatch green"></span>
+                            Green</label>
+                        <label><input type="radio" name="color" value="Khaki" onchange="setColor(this)"> <span
+                                class="swatch khaki"></span>
+                            Khaki</label>
+                        <label><input type="radio" name="color" value="Lavender" onchange="setColor(this)"> <span
+                                class="swatch lavender"></span> Lavender</label>
+                        <label><input type="radio" name="color" value="Maroon" onchange="setColor(this)"> <span
+                                class="swatch maroon"></span> Maroon</label>
+                        <label><input type="radio" name="color" value="Mint" onchange="setColor(this)"> <span
+                                class="swatch mint"></span>
+                            Mint</label>
+                        <label><input type="radio" name="color" value="Navy" onchange="setColor(this)"> <span
+                                class="swatch navy"></span>
+                            Navy</label>
+                        <label><input type="radio" name="color" value="Olive" onchange="setColor(this)"> <span
+                                class="swatch olive"></span>
+                            Olive</label>
+                        <label><input type="radio" name="color" value="Orange" onchange="setColor(this)"> <span
+                                class="swatch orange"></span> Orange</label>
+                        <label><input type="radio" name="color" value="Pink" onchange="setColor(this)"> <span
+                                class="swatch pink"></span>
+                            Pink</label>
+                        <label><input type="radio" name="color" value="Red" onchange="setColor(this)"> <span
+                                class="swatch red"></span>
+                            Red</label>
+                        <label><input type="radio" name="color" value="Silver" onchange="setColor(this)"> <span
+                                class="swatch silver"></span> Silver</label>
+                        <label><input type="radio" name="color" value="Tan" onchange="setColor(this)"> <span
+                                class="swatch tan"></span>
+                            Tan</label>
+                        <label><input type="radio" name="color" value="Teal" onchange="setColor(this)"> <span
+                                class="swatch teal"></span>
+                            Teal</label>
+                        <label><input type="radio" name="color" value="Turquoise" onchange="setColor(this)"> <span
+                                class="swatch turquoise"></span> Turquoise</label>
+                        <label><input type="radio" name="color" value="White" onchange="setColor(this)"> <span
+                                class="swatch white"></span>
+                            White</label>
+                        <label><input type="radio" name="color" value="Yellow" onchange="setColor(this)"> <span
+                                class="swatch yellow"></span> Yellow</label>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Clear filters button -->
+    <!-- Clear Filters Button -->
     <div class="text-center mt-3">
         <button class="btn btn-outline-secondary btn-sm" onclick="clearFilters()">Clear All Filters</button>
     </div>
-
 </div>
 
 
