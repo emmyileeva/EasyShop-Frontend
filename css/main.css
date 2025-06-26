@@ -234,12 +234,12 @@ main > .content-form .cart-item {
 .modal {
   display: flex;
   justify-content: center;
-  position: absolute;
-  top: 0;
-  background-color: #777777aa;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1000;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(3px);
+  z-index: 1050;
   padding: 30px;
 }
 
@@ -389,4 +389,83 @@ main > .content-form .cart-item {
 #clear-filters-btn.show {
   display: inline-block;
   opacity: 1;
+}
+
+/* Login Modal Custom Styles */
+.modal-content {
+  border-radius: 12px;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  background-color: #fffdf9;
+}
+
+.modal-header {
+  border-bottom: none;
+  padding: 1rem 1.5rem;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #4a2f1b;
+}
+
+.modal-body {
+  padding: 1rem 1.5rem;
+}
+
+.modal-footer {
+  border-top: none;
+  padding: 1rem 1.5rem;
+}
+
+.modal .form-control {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #fffefa;
+  font-size: 0.95rem;
+  padding: 10px 12px;
+}
+
+.modal .form-floating > label {
+  font-weight: 400;
+  color: #666;
+}
+
+.btn-primary {
+  background-color: #4a2f1b;
+  border-color: #4a2f1b;
+}
+
+.btn-primary:hover {
+  background-color: #623c24;
+  border-color: #623c24;
+}
+
+.btn-secondary {
+  background-color: #cfc6b8;
+  border-color: #b8aea0;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background-color: #bfb5a6;
+  border-color: #a99e8f;
+}
+
+/* Modal fade + slide in */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal.show .modal-dialog {
+  animation: fadeSlideIn 0.4s ease-out;
 }
