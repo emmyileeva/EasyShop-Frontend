@@ -60,6 +60,50 @@ main #min-price .slider-selection {
   background: #bababa;
 }
 
+.filter-box {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .filter-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #924a24;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .filter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .section-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #333;
+  }
+  
+  .range-row {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.9rem;
+  }
+  
+  input[type="range"] {
+    accent-color: #924a24;
+  }
+  
+
 main > .content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
