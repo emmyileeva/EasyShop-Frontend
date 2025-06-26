@@ -10,6 +10,17 @@ header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
+header a {
+  color: #6a4c38; /* soft brown tone to match the logo */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+header a:hover {
+  color: #c97b4d; /* soft orange highlight on hover */
+}
+
 header img {
   height: 75px;
   width: auto;
@@ -44,6 +55,17 @@ header .cart #cart-items {
   font-size: 0.75em;
 }
 
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
 main {
   display: grid;
   grid-template-columns: 350px auto;
@@ -54,6 +76,7 @@ main {
 main > .filter-box {
   width: 350px;
   padding: 15px;
+  background-color: #faf8f3;
 }
 
 main #min-price .slider-selection {
@@ -72,12 +95,11 @@ main #min-price .slider-selection {
 }
 
 .filter-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #924a24;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #4a2f1b;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #eee;
 }
 
 .filter-section {
