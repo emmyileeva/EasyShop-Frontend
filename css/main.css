@@ -381,10 +381,11 @@ main > .content {
 
 .modal-body {
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
   justify-content: center;
   align-items: center;
   padding: 1rem 1.5rem;
-  text-align: center;
 }
 
 .modal-body img {
@@ -406,6 +407,10 @@ main > .content {
   background-color: #fffefa;
   font-size: 0.95rem;
   padding: 10px 12px;
+}
+
+.modal .form-floating {
+  width: 100%;
 }
 
 .modal .form-floating > label {
