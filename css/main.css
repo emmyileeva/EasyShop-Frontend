@@ -156,7 +156,7 @@ button:hover,
 /*           Layout           */
 /* ========================== */
 
-main {
+.main-home {
   display: grid;
   grid-template-columns: 350px auto;
   margin-top: 15px;
@@ -409,4 +409,63 @@ main > .content {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ========================== */
+/*         Profile Page       */
+/* ========================== */
+
+.profile-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  padding: 60px 20px;
+  background-color: #fdfdfb;
+}
+
+.profile-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #4a2f1b;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-floating {
+  position: relative;
+}
+
+.form-floating input {
+  border-radius: 8px;
+  background-color: #fffefa;
+  border: 1px solid #ccc;
+}
+
+.form-floating label {
+  font-weight: 500;
+  color: #666;
+}
+
+button.btn-outline-danger {
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 2px solid #c0392b;
+  color: #c0392b;
+  transition: all 0.3s ease;
+}
+
+button.btn-outline-danger:hover {
+  background-color: #c0392b;
+  color: #fff;
 }

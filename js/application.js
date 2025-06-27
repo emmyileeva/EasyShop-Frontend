@@ -25,12 +25,12 @@ function showImageDetailForm(product, imageUrl) {
 
 function loadHome() {
   templateBuilder.build("home", {}, "main", () => {
-    // This runs AFTER home.html is rendered
+    // Add home layout class to main after rendering
+    document.getElementById("main").className = "main-home";
+
     productService.search();
     categoryService.getAllCategories((categories) => {
       loadCategories(categories);
-
-      // Wait for filters to appear in DOM before checking
       setTimeout(() => {
         checkIfFiltersAreActive();
       }, 200);
@@ -39,7 +39,10 @@ function loadHome() {
 }
 
 function editProfile() {
-  profileService.loadProfile();
+  profileService.loadProfile(() => {
+    // Only change layout after profile content is injected
+    document.getElementById("main").className = "";
+  });
 }
 
 function saveProfile() {
