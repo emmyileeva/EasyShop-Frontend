@@ -204,6 +204,13 @@ main #min-price .slider-selection {
   gap: 20px;
 }
 
+/* Fix layout when filter-box is hidden on non-home pages */
+.filter-box[style*="visibility: hidden"] {
+  width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 .filter-title {
   font-size: 1.3rem;
   font-weight: 700;
@@ -513,7 +520,7 @@ button.btn-outline-danger:hover {
 
 #content.content-form {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 30px auto 0 auto;
   padding: 30px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -567,4 +574,10 @@ button.btn-outline-danger:hover {
   font-weight: 600;
   color: #4a2f1b;
   margin-top: 20px;
+}
+
+#empty-cart-message {
+  margin-top: 40px;
+  font-size: 1.2rem;
+  color: #777;
 }

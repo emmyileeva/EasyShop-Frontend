@@ -1,14 +1,25 @@
 <main id="cart-main" class="d-flex justify-content-center align-items-start flex-grow-1"
   style="padding: 60px 20px; background-color: #fdfdfb;">
-  <div class="filter-box">
-    &nbsp;
-  </div>
 
+  <!-- Invisible placeholder to preserve layout spacing -->
+  <div class="filter-box" style="visibility: hidden; width: 0; padding: 0; margin: 0;"></div>
+
+  <!-- Main Cart Content -->
   <div id="content" class="content-form">
     <div class="cart-header">
       <h1>Cart</h1>
       <button class="btn btn-danger" onclick="clearCart()">Clear</button>
     </div>
+
+    <!-- If cart is empty -->
+    <div id="empty-cart-message" style="text-align: center; color: #888; font-size: 1.1rem;">
+      Your cart is currently empty 🛒
+    </div>
+
+    <!-- If cart has items, this gets populated dynamically -->
     <div id="cart-item-list"></div>
+
+    <!-- Total price container -->
+    <div class="cart-total" id="cart-total" style="display: none;">Total: $0.00</div>
   </div>
 </main>

@@ -57,16 +57,9 @@ class ShoppingCartService {
         templateBuilder.append("error", data, "errors");
       });
   }
-
   loadCartPage() {
-    // templateBuilder.build("cart", this.cart, "main");
-
     const main = document.getElementById("main");
     main.innerHTML = "";
-
-    let div = document.createElement("div");
-    div.classList = "filter-box";
-    main.appendChild(div);
 
     const contentDiv = document.createElement("div");
     contentDiv.id = "content";
@@ -80,8 +73,7 @@ class ShoppingCartService {
     cartHeader.appendChild(h1);
 
     const button = document.createElement("button");
-    button.classList.add("btn");
-    button.classList.add("btn-danger");
+    button.classList.add("btn", "btn-danger");
     button.innerText = "Clear";
     button.addEventListener("click", () => this.clearCart());
     cartHeader.appendChild(button);
@@ -89,7 +81,33 @@ class ShoppingCartService {
     contentDiv.appendChild(cartHeader);
     main.appendChild(contentDiv);
 
-    // let parent = document.getElementById("cart-item-list");
+    if (this.cart.items.length === 0) {
+      const emptyMsg = document.createElement("div");
+      emptyMsg.style.textAlign = "center";
+      emptyMsg.style.padding = "40px 0";
+
+      const emoji = document.createElement("div");
+      emoji.innerText = "🛒";
+      emoji.style.fontSize = "2.5rem";
+      emoji.style.marginBottom = "10px";
+
+      const msg = document.createElement("h5");
+      msg.innerText = "Your cart is empty!";
+      msg.style.color = "#6a4c38";
+
+      const sub = document.createElement("p");
+      sub.innerText = "Start adding items to see them here.";
+      sub.style.color = "#888";
+      sub.style.marginTop = "5px";
+
+      emptyMsg.appendChild(emoji);
+      emptyMsg.appendChild(msg);
+      emptyMsg.appendChild(sub);
+      contentDiv.appendChild(emptyMsg);
+      return;
+    }
+
+    // If cart is not empty:
     this.cart.items.forEach((item) => {
       this.buildItem(item, contentDiv);
     });
@@ -98,6 +116,11 @@ class ShoppingCartService {
     total.classList.add("cart-total");
     total.innerText = `Total: $${this.cart.total.toFixed(2)}`;
     contentDiv.appendChild(total);
+
+    const note = document.createElement("p");
+    note.classList.add("text-muted", "text-end");
+    note.innerText = "Review your items before checking out.";
+    contentDiv.appendChild(note);
   }
 
   buildItem(item, parent) {
