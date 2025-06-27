@@ -130,12 +130,48 @@ class ShoppingCartService {
     const total = document.createElement("h3");
     total.classList.add("cart-total");
     total.innerText = `Total: $${this.cart.total.toFixed(2)}`;
-    contentDiv.appendChild(total);
 
     const note = document.createElement("p");
     note.classList.add("text-muted", "text-end");
     note.innerText = "Review your items before checking out.";
-    contentDiv.appendChild(note);
+
+    const checkoutBtn = document.createElement("button");
+    checkoutBtn.classList.add("btn-checkout", "mt-3");
+    checkoutBtn.innerText = "Proceed to Checkout";
+    checkoutBtn.addEventListener("click", () => this.checkout());
+
+    const summary = document.createElement("div");
+    summary.classList.add("cart-summary");
+    summary.appendChild(total);
+    summary.appendChild(note);
+    summary.appendChild(checkoutBtn);
+
+    contentDiv.appendChild(summary);
+  }
+
+  checkout() {
+    const url = `${config.baseUrl}/orders`;
+
+    axios
+      .post(url, {})
+      .then((response) => {
+        alert("Order placed successfully!");
+
+        this.cart = {
+          items: [],
+          total: 0,
+        };
+
+        this.updateCartDisplay();
+        this.loadCartPage(); // Refresh cart view
+      })
+      .catch((error) => {
+        const data = {
+          error: "Checkout failed. Please try again.",
+        };
+
+        templateBuilder.append("error", data, "errors");
+      });
   }
 
   buildItem(item, parent) {

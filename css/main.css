@@ -536,12 +536,13 @@ button.btn-outline-danger:hover {
 .cart-item {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 20px;
   margin-bottom: 25px;
   border-bottom: 1px solid #eee;
   padding-bottom: 20px;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .cart-item img {
@@ -577,6 +578,11 @@ button.btn-outline-danger:hover {
   align-items: center;
 }
 
+.cart-item .photo img {
+  width: 100px;
+  border-radius: 10px;
+}
+
 .cart-item:hover {
   background-color: #fdf7f2;
   border-radius: 8px;
@@ -594,6 +600,26 @@ button.btn-outline-danger:hover {
   margin-top: 40px;
   font-size: 1.2rem;
   color: #777;
+}
+
+.btn-checkout {
+  background-color: #924a24;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.btn-checkout:hover {
+  background-color: #7a4d2f;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  text-align: center;
 }
 
 /* ========================== */
