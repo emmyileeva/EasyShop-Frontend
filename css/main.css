@@ -652,3 +652,107 @@ button.btn-outline-danger:hover {
   width: 700px;
   max-width: 900px;
 }
+
+/* Container for swatches */
+.color-swatches label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Circle swatches */
+.swatch {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+/* Specific swatch colors */
+.swatch.black {
+  background-color: black;
+}
+.swatch.blue {
+  background-color: blue;
+}
+.swatch.brown {
+  background-color: brown;
+}
+.swatch.burgundy {
+  background-color: #800020;
+}
+.swatch.charcoal {
+  background-color: #36454f;
+}
+.swatch.clear {
+  background-color: #ffffff;
+  border: 1px dashed #aaa;
+}
+.swatch.dark-blue {
+  background-color: #00008b;
+}
+.swatch.gray {
+  background-color: gray;
+}
+.swatch.green {
+  background-color: green;
+}
+.swatch.khaki {
+  background-color: #c3b091;
+}
+.swatch.lavender {
+  background-color: lavender;
+}
+.swatch.maroon {
+  background-color: maroon;
+}
+.swatch.mint {
+  background-color: #98ff98;
+}
+.swatch.navy {
+  background-color: navy;
+}
+.swatch.olive {
+  background-color: olive;
+}
+.swatch.orange {
+  background-color: orange;
+}
+.swatch.pink {
+  background-color: pink;
+}
+.swatch.red {
+  background-color: red;
+}
+.swatch.silver {
+  background-color: silver;
+}
+.swatch.tan {
+  background-color: tan;
+}
+.swatch.teal {
+  background-color: teal;
+}
+.swatch.turquoise {
+  background-color: turquoise;
+}
+.swatch.white {
+  background-color: white;
+  border: 1px solid #999;
+}
+.swatch.yellow {
+  background-color: yellow;
+}
+.swatch.all {
+  background: repeating-linear-gradient(
+    45deg,
+    #aaa,
+    #aaa 2px,
+    #fff 2px,
+    #fff 4px
+  );
+}
