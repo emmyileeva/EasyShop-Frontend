@@ -57,14 +57,28 @@ class ShoppingCartService {
         templateBuilder.append("error", data, "errors");
       });
   }
+
   loadCartPage() {
     const main = document.getElementById("main");
     main.innerHTML = "";
 
+    // Ensure main is flex-centered
+    main.style.display = "flex";
+    main.style.justifyContent = "center";
+
+    // Wrapper for centering
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("cart-wrapper");
+
+    // Content container
     const contentDiv = document.createElement("div");
     contentDiv.id = "content";
     contentDiv.classList.add("content-form");
 
+    wrapper.appendChild(contentDiv);
+    main.appendChild(wrapper);
+
+    // Header with title + clear button
     const cartHeader = document.createElement("div");
     cartHeader.classList.add("cart-header");
 
@@ -79,8 +93,8 @@ class ShoppingCartService {
     cartHeader.appendChild(button);
 
     contentDiv.appendChild(cartHeader);
-    main.appendChild(contentDiv);
 
+    // Empty cart message
     if (this.cart.items.length === 0) {
       const emptyMsg = document.createElement("div");
       emptyMsg.style.textAlign = "center";
@@ -104,10 +118,11 @@ class ShoppingCartService {
       emptyMsg.appendChild(msg);
       emptyMsg.appendChild(sub);
       contentDiv.appendChild(emptyMsg);
+
       return;
     }
 
-    // If cart is not empty:
+    // Build items
     this.cart.items.forEach((item) => {
       this.buildItem(item, contentDiv);
     });
@@ -164,17 +179,7 @@ class ShoppingCartService {
     axios
       .delete(url)
       .then((response) => {
-        this.cart = {
-          items: [],
-          total: 0,
-        };
-
-        this.cart.total = response.data.total;
-
-        for (const [key, value] of Object.entries(response.data.items)) {
-          this.cart.items.push(value);
-        }
-
+        this.setCart(response.data);
         this.updateCartDisplay();
         this.loadCartPage();
       })
